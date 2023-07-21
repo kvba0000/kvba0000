@@ -13,9 +13,8 @@ $ pnpm start
 <h3>Here are some info about me</h3>
 
 <ul>
-  <li>🔭 I’m currently working on <a href="https://kobb.tech">my website</a> which will include <a href="https://nextjs.org/">React with Next.js</a> and integration with Github and many other platforms!</li>
   <li>🌱 I’m currently learning Golang and how to use specific libraries in it.</li>
-  <li>📫 Contact: <a href="https://kobb.tech">All of the contact links are on my website</a></li>
+  <li>📫 Contact: You can contact me through my email: <a href="mailto:contact@kbb.anonaddy.me">contact@kbb.anonaddy.me</a>, I'll try to respond as fast as I can!</li>
   <li>👦 Pronouns: He/Him</li>
 </ul>
 <sub>🤝 I'm open for collaborations!</sub>  
