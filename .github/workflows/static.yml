@@ -36,23 +36,6 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      - name: Github Action javascript-obfuscator
-        # You may pin to the exact commit or the version.
-        # uses: KevinRohn/github-action-javascript-obfuscator@4c17874d862979e5b7ce8dda82112e20f6a6cf50
-        uses: KevinRohn/github-action-javascript-obfuscator@v1.1.0
-        with:
-          # Single file or directory
-          input_path: "./web"
-          # Output path for single file or directory
-          output_path: "./web"
-          compact: true
-          dead_code_injection: true
-          debug_protection: true
-          disable_console_output: true
-          self_defending: true
-          simplify: true
-          unicode_escape_sequence: true
-        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         
