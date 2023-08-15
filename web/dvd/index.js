@@ -2,6 +2,8 @@ const spawnCountElem = document.querySelector('p#logo-spawned-count span')
 const spawningWarning = document.querySelector('#spawn-warning')
 const openCreditsBtn = document.querySelector("#openContribBox"), closeCreditsBtn = document.querySelector("#closeContribBox"), contribBox = document.querySelector('div.contribBox')
 
+const isOnMobile = /Android|iPhone/i.test(navigator.userAgent)
+
 const CTX_MENUS = {
     DEFAULT: [
         ["By kb", null],
@@ -51,7 +53,7 @@ const doUpdateCounter = () => {
     if(popups.length >= 3) spawningWarning.removeAttribute('hidden'); else spawningWarning.setAttribute('hidden', true) 
 },
 doSpawnLogo = () => {
-    if(navigator.userAgentData.mobile) return alert("This website doesn't work on mobile! (or at least for now :>)")
+    if(isOnMobile) return alert("This website doesn't work on mobile! (or at least for now :>)")
     spawnLogo();
     doUpdateCounter();
 },
@@ -194,7 +196,7 @@ closeCreditsBtn.addEventListener('click', () => {
 
 // Mobile warning
 window.addEventListener('load', () => {
-    if(navigator.userAgentData.mobile) {
+    if(isOnMobile) {
         spawningWarning.querySelector(".spawn-warning-msg").innerText = "This website WON'T work on mobile!";
         spawningWarning.removeAttribute('hidden')
     }
