@@ -104,6 +104,7 @@ const DVD_SS = class {
         this.window.postMessage(['startMoving', {
             pos: this.startPos,
             size: this.startSize,
+            screen: screenSize,
             xx: this.startXx,
             yy: this.startYy,
             FREQ,

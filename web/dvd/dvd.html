@@ -56,8 +56,8 @@
                     if(windowData.yy) windowData.pos.y += windowData.JUMPER;
                     else windowData.pos.y -= windowData.JUMPER;
             
-                    if(windowData.pos.x < 0+5 || windowData.pos.x > screen.width - windowData.size.w) {windowData.xx = !windowData.xx; hitWall()}
-                    if(windowData.pos.y < 0+5 || windowData.pos.y > screen.height - windowData.size.h - windowData.DEAD_ZONE) {windowData.yy = !windowData.yy; hitWall()}
+                    if(windowData.pos.x < 0+5 || windowData.pos.x > windowData.screen.width - windowData.size.w) {windowData.xx = !windowData.xx; hitWall()}
+                    if(windowData.pos.y < 0+5 || windowData.pos.y > windowData.screen.height - windowData.size.h - windowData.DEAD_ZONE) {windowData.yy = !windowData.yy; hitWall()}
             
                     window.moveTo(windowData.pos.x, windowData.pos.y)
                     window.resizeTo(windowData.size.w, windowData.size.h)
