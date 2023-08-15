@@ -27,7 +27,6 @@
             }, {once: true})
 
             const dvd = document.querySelector('#dvd')
-            let moving = false;
             let windowData;
             window.addEventListener('message', ({data: d}) => {
                 const [type, data] = d
@@ -37,7 +36,7 @@
                         break;
                     case "sendInitialData":
                         windowData = data;
-                        if(!window.moving) startMoving(); // Run user-data script
+                        startMoving(windowData); // Run user-data script
                         break;
                 }
             })

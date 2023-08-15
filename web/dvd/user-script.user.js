@@ -15,7 +15,7 @@
 
     unsafeWindow.USERSCRIPT_LOADED = true;
 
-    unsafeWindow.startMoving = () => {
+    unsafeWindow.startMoving = (windowData) => {
         setInterval(() => {
             if(windowData.xx) windowData.pos.x += windowData.JUMPER;
             else windowData.pos.x -= windowData.JUMPER;
