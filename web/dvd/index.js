@@ -21,7 +21,7 @@ const CTX_MENUS = {
                     alert("Invalid number")
                     p();
                 }
-                localStorage.setItem('FREQ', msg)
+                localStorage.setItem('SETTINGS.FREQ', msg)
                 alert(`Updated to ${msg}!`)
                 location.reload();
                 return true;
@@ -36,7 +36,7 @@ const CTX_MENUS = {
                     alert("Invalid number")
                     p();
                 }
-                localStorage.setItem('JUMPER', msg)
+                localStorage.setItem('SETTINGS.JUMPER', msg)
                 alert(`Updated to ${msg}!`)
                 location.reload();
                 return true;
