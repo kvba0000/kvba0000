@@ -49,7 +49,6 @@ jobs:
           dead_code_injection: true
           debug_protection: true
           disable_console_output: true
-          domain_lock: ["kobb.tech"]
           self_defending: true
           simplify: true
           unicode_escape_sequence: true
