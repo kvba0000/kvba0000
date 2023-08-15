@@ -44,7 +44,7 @@ jobs:
           # Single file or directory
           input_path: "./web"
           # Output path for single file or directory
-          output_path: "./web-obf"
+          output_path: "./web"
           compact: true
           dead_code_injection: true
           debug_protection: true
