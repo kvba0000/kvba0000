@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+
+
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: black;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+}
+.main {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@keyframes rainbow {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+a {color: unset;}
+#logo {
+    width: 200px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: rainbow 10s infinite;
+}
+.btn-list, #logo-spawned-count, .footer {
+    text-align: center;
+}
+.footer {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(255, 255, 255);
+    display: flex;
+    opacity: 30%;
+}
+#splitter {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#splitter::after {
+    content: "|";
+}
+
+#spawn-warning {
+    color: red;
+    text-align: center;
+}
+
+button {
+    background-color: rgb(130, 0, 0);
+    color: white;
+    animation: 10s rainbow infinite;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: rgb(170, 0, 0);
+    transform: scale(1.03);
+}
+
+button:active {
+    background-color: rgb(150, 0, 0);
+    transform: scale(1.02);
+}
+
+div.ctxMenu {
+    backdrop-filter: blur(10px);
+    position: fixed;
+    max-width: 300px;
+    min-width: 120px;
+    background-color: rgba(82, 82, 82, 0.2);
+    border-bottom: 5px solid rgb(21, 21, 21);
+    border-right: 3px solid rgb(21, 21, 21);
+    border-top: 1px solid rgb(100, 100, 100);
+    z-index: 9999;
+}
+
+div.ctxMenu-btn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    max-width: 100%;
+    min-height: 20px;
+    padding: 3px;
+    user-select: none;
+    padding-right: 20px;
+}
+
+div.ctxMenu-btn:hover {
+    background-color: rgba(121, 121, 121, 0.4)
+}
+
+div.ctxMenu-btn-disabled {
+    color: rgb(187, 187, 187);
+}
+
+div.ctxMenu-btn > span {
+    padding-left: 5px;
+    display: inline-block;
+}
+
+div.ctxMenu > hr {
+    border-color: rgb(57, 57, 57);
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+div.contribBox-wrapper span {
+    display: block;
+}
+
+div.contribBox h1 {
+    margin: 0;
+    margin-bottom: 3px;
+}
+
+div.contribBox {
+    border-radius: 5px;
+    background-color: rgba(86, 86, 86, 0.2);
+    padding: 20px;
+    position: fixed;
+    max-width: 300px;
+    margin: 20px;
+    user-select: none;
+    left: -100%;
+    display: none;
+    backdrop-filter: blur(10px);
+}
+
+div.contribBox-wrapper {
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: rgba(86, 86, 86, 0.2);
+    padding: 20px;
+    user-select: text;
+    backdrop-filter: blur(10px);
+}
+
+div.contribBox-wrapper h3 {
+    margin: 0;
+    margin-bottom: 3px;
+}
+
+div#closeContribBox,
+div#openContribBox {
+    font-size: 20px;
+    margin: 0;
+    cursor: pointer;
+    padding: 0;
+    user-select: none;
+    font-weight: bold;
+}
+
+div#closeContribBox {
+    margin-right: 20px;
+    position: absolute;
+    right: 0;
+}
+
+div#openContribBox {
+    margin: 20px;
+    position: fixed;
+    left: 0;
+}
