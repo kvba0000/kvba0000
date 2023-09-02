@@ -1,6 +1,6 @@
 ~~~ js
 import Introduction from "./README.md"
-console.log(new Introduction('kb-kng'))
+console.log(new Introduction('kbvivi'))
 ~~~
 ~~~ cmd
 $ pnpm start
