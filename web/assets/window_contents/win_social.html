@@ -53,8 +53,10 @@
             const params = new URLSearchParams(location.search)
             const type = params.get('t')
             
-            const content = contents.get(type);
-            if(typeof content === "function") document.body.appendChild(content());
+            if(contents.has(type)){
+                const content = contents.get(type);
+                document.body.appendChild(content());
+            }
 
 
         </script>
