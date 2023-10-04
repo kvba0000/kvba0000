@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                background: transparent;
+                margin: 0;
+            }
+            iframe#social,
+            img#social {
+                height: 100%;
+                width: 100%;
+                position: fixed;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+            .clickable {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body onload="if(window.top === window)document.write('please visit main website :3')">
+        <script>
+            const append_iFrame = (url) => {
+                const iframe = document.createElement('iframe');
+                iframe.src = url;
+                iframe.id = 'social'
+                iframe.setAttribute('windowborder', '0');
+                document.body.appendChild(iframe);
+            }
+            // can't append real sites... :(
+            const append_img = (src, href) => {
+                const img = document.createElement('img');
+                img.style.backgroundImage = `url("${src}")`;
+                img.id = 'social';
+                document.body.appendChild(img)
+                
+                if(href){
+                    img.classList.add('clickable')
+                    img.addEventListener('click', () => window.open(href, "_blank"))
+                }
+            }
+            const actions = {
+                youtube: () => append_iFrame("https://www.youtube.com/embed?listType=playlist&list=UULFR92GYi7RW7V99FiHZ6nbyg&color=white&enablejsapi=1&fs=0&rel=0&autoplay=1"),
+                mastodon: () => append_img("assets/mastodon_ss.png", "https://101010.pl/@kb"),
+                reddit: () => append_img('assets/reddit_ss.png', "https://www.reddit.com/user/Affectionate_Sea3502"),
+                github: () => append_img('assets/github_ss.png', "https://github.com/kbvivi")
+            }
+            const params = new URLSearchParams(location.search)
+            const type = params.get('t')
+            
+            actions[type]();
+        </script>
+    </body>
+</html>

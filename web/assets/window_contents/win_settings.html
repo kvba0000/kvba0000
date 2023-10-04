@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Preload -->
+        <link rel="preload" href="/assets/css/settings.css" as="style" />
+        <link rel="preload" href="/assets/settings.svg" as="image" />
+
+        <link href="assets/css/settings.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="splash">
+            <img src="assets/settings.svg" />
+        </div>
+        <div id="leftpane">
+        </div>
+        <div id="rightpane">
+            <div>
+                <h1>Website settings</h1>
+                <h2>Pick an image</h2>
+                <span>Wallpaper will save between website refreshes.</span>
+                <span>Desktop wallpaper</span>
+                <input name="set-desktopWallpaper" type="url" placeholder="Fill with image URL" />
+                <span>Lock screen image</span>
+                <input name="set-lockscreenWallpaper" type="url" placeholder="Fill with image URL" /> 
+            </div>
+            <br>
+            <button id="save">Save</button>
+        </div>
+        <script src="assets/js/settings.js"></script>
+    </body>
+</html>

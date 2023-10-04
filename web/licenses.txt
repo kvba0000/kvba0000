@@ -1,0 +1,91 @@
+|3Every item below belongs to their owners on behalf of license stated on the source provided with them. Every item is being used in good intentions and are not used to impersonate anything, more just to parody them.
+|3For questions/removal requests please e-mail: kbvivi.contact@gmail.com
+
+|3If you want to use any content included on this website, please keep in mind licenses listed below.
+
+|2Windows
+
+Windows is owned by Microsoft and this site's whole purpose is to parody it.
+kobb.tech is not a part of and is not affiliated with Microsoft in any way.
+kobb.tech is not monetized and it's source code is open and is available at https://github.com/kbvivi/kbvivi
+
+|3Windows: https://microsoft.com/windows
+|3Microsoft: https://microsoft.com/
+
+|1Fonts
+
+|2Google Fonts (https://fonts.google.com/):
+
+Fira Sans
+Archivo
+Open Sans
+
+|1Images:
+
+|2Pixabay:
+
+Space Wallpaper 1 by Pexels: https://pixabay.com/photos/astronomy-bright-constellation-dark-1867616/
+Space Wallpaper 2 by FelixMittermeier: https://pixabay.com/photos/milky-way-stars-night-sky-2695569/
+
+|1Icons:
+
+|2Icons8:
+
+Windows icon: https://icons8.com/icon/tpIcYSg4KMn0/windows-10
+
+|2SVGRepo:
+
+Maximize Icon by Konstantin Filatov: https://www.svgrepo.com/svg/521743/maximize
+Close Icon by Vlad Cristea: https://www.svgrepo.com/svg/522506/close
+Night Moon by SVG Repo: https://www.svgrepo.com/svg/279723/night-moon
+Notepad by flat-icon-design: https://www.svgrepo.com/svg/484546/notepad
+Settings by Catalin Fertu: https://www.svgrepo.com/svg/522270/settings
+
+|1Logos:
+
+|2Reddit
+
+Reddit logo has been used in terms of fair use and no to imitate them, but for promotion purposes of my profile.
+More: https://www.redditinc.com/brand
+
+|2GitHub:
+
+GitHub logo has been used in terms of fair use and no to imitate them, but for promotion purposes of my profile.
+More: https://github.com/logos
+
+|2Mastodon:
+
+Mastodon logo has been used in terms of fair use and no to imitate them, but for promotion purposes of my profile.
+More: https://joinmastodon.org/branding
+
+|2YouTube:
+
+YouTube logo is a property of Google and has been used in terms of fair use and no to imitate them, but for promotion purposes of my profile.
+More: https://www.youtube.com/howyoutubeworks/resources/brand-resources
+
+
+|1Audio:
+
+|2Other:
+
+Lights ON/OFF By Emilija - https://www.youtube.com/watch?v=buAkqvWYbdE
+
+
+|1Other properties:
+
+|2Oneshot (audio/logo/sprites):
+
+Oneshot is a game created by Future Cat LLC, any item used on this website from the game is their property and it's served for parody and fan made content purposes.
+Buy the game at http://www.oneshot-game.com/
+
+|2Omori (audio/logo/sprites):
+
+Omori is a game created by OMOCAT LLC, any item used on this website from the game is their property and it's served for parody and fan made content purposes.
+Buy the game at https://omori-game.com/
+
+|2Undertale (audio/logo/sprites):
+
+Undertale is a game created by Toby Fox, any item used on this website from the game is their property and it's served for parody and fan made content purposes.
+Buy the game at https://undertale.com/
+
+|3Bad Time Simulator by jcw87: https://jcw87.github.io/c2-sans-fight/
