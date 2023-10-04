@@ -44,10 +44,10 @@
             }
             const contents = new Map();
             Object.entries({
-                youtube: () => create_iframe("https://www.youtube.com/embed?listType=playlist&list=UULFR92GYi7RW7V99FiHZ6nbyg&color=white&enablejsapi=1&fs=0&rel=0&autoplay=1"),
-                mastodon: () => create_img("assets/mastodon_ss.png", "https://101010.pl/@kb"),
-                reddit: () => create_img('assets/reddit_ss.png', "https://www.reddit.com/user/Affectionate_Sea3502"),
-                github: () => create_img('assets/github_ss.png', "https://github.com/kbvivi")
+                youtube: create_iframe("https://www.youtube.com/embed?listType=playlist&list=UULFR92GYi7RW7V99FiHZ6nbyg&color=white&enablejsapi=1&fs=0&rel=0&autoplay=1"),
+                mastodon: create_img("assets/mastodon_ss.png", "https://101010.pl/@kb"),
+                reddit: create_img('assets/reddit_ss.png', "https://www.reddit.com/user/Affectionate_Sea3502"),
+                github: create_img('assets/github_ss.png', "https://github.com/kbvivi")
             }).forEach(c => contents.set(c[0], c[1]))
 
             const params = new URLSearchParams(location.search)
@@ -55,7 +55,7 @@
             
             if(contents.has(type)){
                 const content = contents.get(type);
-                document.body.appendChild(content());
+                document.body.appendChild(content);
             }
 
 
