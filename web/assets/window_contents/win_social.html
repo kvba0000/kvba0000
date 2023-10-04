@@ -20,37 +20,43 @@
             }
         </style>
     </head>
-    <body onload="if(window.top === window)document.write('please visit main website :3')">
+    <body>
         <script>
-            const append_iFrame = (url) => {
+            const create_iframe = (url) => {
                 const iframe = document.createElement('iframe');
                 iframe.src = url;
                 iframe.id = 'social'
                 iframe.setAttribute('windowborder', '0');
-                document.body.appendChild(iframe);
+                return iframe;
             }
             // can't append real sites... :(
-            const append_img = (src, href) => {
+            const create_img = (src, href) => {
                 const img = document.createElement('img');
                 img.style.backgroundImage = `url("${src}")`;
                 img.id = 'social';
-                document.body.appendChild(img)
                 
                 if(href){
                     img.classList.add('clickable')
                     img.addEventListener('click', () => window.open(href, "_blank"))
                 }
+
+                return img
             }
-            const actions = {
-                youtube: () => append_iFrame("https://www.youtube.com/embed?listType=playlist&list=UULFR92GYi7RW7V99FiHZ6nbyg&color=white&enablejsapi=1&fs=0&rel=0&autoplay=1"),
-                mastodon: () => append_img("assets/mastodon_ss.png", "https://101010.pl/@kb"),
-                reddit: () => append_img('assets/reddit_ss.png', "https://www.reddit.com/user/Affectionate_Sea3502"),
-                github: () => append_img('assets/github_ss.png', "https://github.com/kbvivi")
-            }
+            const contents = new Map();
+            Object.entries({
+                youtube: () => create_iframe("https://www.youtube.com/embed?listType=playlist&list=UULFR92GYi7RW7V99FiHZ6nbyg&color=white&enablejsapi=1&fs=0&rel=0&autoplay=1"),
+                mastodon: () => create_img("assets/mastodon_ss.png", "https://101010.pl/@kb"),
+                reddit: () => create_img('assets/reddit_ss.png', "https://www.reddit.com/user/Affectionate_Sea3502"),
+                github: () => create_img('assets/github_ss.png', "https://github.com/kbvivi")
+            }).forEach(c => contents.set(c[0], c[1]))
+
             const params = new URLSearchParams(location.search)
             const type = params.get('t')
             
-            actions[type]();
+            const content = contents.get(type);
+            if(typeof content === "function") document.body.appendChild(content());
+
+
         </script>
     </body>
 </html>

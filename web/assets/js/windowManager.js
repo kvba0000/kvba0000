@@ -64,13 +64,16 @@ const WindowClass = class {
     setEvents() {
         // movement functionality
         const titlebar = this.window.querySelector(`.win-window-titlebar`);
-        titlebar.addEventListener('mousedown', (ev) => {
+        titlebar.addEventListener('pointerdown', (ev) => {
             this.window.classList.add('moving-window')
+            
             const rect = ev.target.getBoundingClientRect();
             this.position = {
                 x: ev.clientX - rect.left,
                 y: ev.clientY - rect.top
             }
+
+            titlebar.setPointerCapture(ev.pointerId)
         })
         window.addEventListener('mousemove', (ev) => {
             if(this.window.classList.contains('moving-window')){
@@ -80,7 +83,7 @@ const WindowClass = class {
         })
 
         // closing functionality
-        this.window.querySelector(".win-window-titlebar-exit").addEventListener('click', () => {
+        this.window.querySelector(".win-window-titlebar-exit").addEventListener('mousedown', () => {
             this.window.animate([
                 {"opacity": "100%", "transform": "scale(1.0)"},
                 {"opacity": "0%", "transform": "scale(0.8)"}
@@ -88,7 +91,7 @@ const WindowClass = class {
         })
 
         // maximizing functionality
-        this.window.querySelector(".win-window-titlebar-max").addEventListener('click', () => this.window.classList.toggle('maximized'))
+        this.window.querySelector(".win-window-titlebar-max").addEventListener('mousedown', () => this.window.classList.toggle('maximized'))
         
         // messages
         this.setMessageHandler();
@@ -129,7 +132,6 @@ const SettingsWindowClass = class extends WindowClass {
     }
 
     onMessage(data){
-        console.log(data)
         switch(data.event) {
             case "saveSettings": {
                 const config = data.data;
@@ -148,6 +150,27 @@ const SettingsWindowClass = class extends WindowClass {
 }
 
 
-window.addEventListener('mouseup', () => {
-    document.querySelectorAll('.moving-window').forEach(el => el.classList.remove('moving-window'))
+window.addEventListener('pointerup', ev => {
+    document.querySelectorAll('.win-window.moving-window').forEach(el => {
+        const titlebar = el.querySelector('.win-window-titlebar');
+
+        const windowPos = el.getBoundingClientRect();
+        const titlebarPos = titlebar.getBoundingClientRect();
+        const taskbarPos = WINDOWS.taskbar.getBoundingClientRect();
+        
+        el.classList.remove('moving-window')
+        titlebar.releasePointerCapture(ev.pointerId)
+
+        const underTaskbarDist = windowPos.top - taskbarPos.top
+
+        const checks = [
+            [titlebarPos.bottom <= 0, () => el.style.top = 0], // titlebar above the page 
+            [underTaskbarDist >= 0, () => el.style.top = taskbarPos.top - titlebar.clientHeight], // titlebar below the taskbar
+            [titlebarPos.right <= 0, () => el.style.left = 0], // titlebar outside the page - left
+            [titlebarPos.left >= document.documentElement.clientWidth, () => el.style.left = document.documentElement.clientWidth - titlebar.clientWidth] // titlebar outside the page - right
+        ]
+        checks.forEach(check => {
+            if(check[0]) check[1]()
+        })
+    })
 })
