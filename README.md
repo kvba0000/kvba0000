@@ -14,7 +14,7 @@ $ pnpm start
 
 <ul>
   <li>🌱 I’m currently learning Golang and how to use specific libraries in it.</li>
-  <li>📫 Contact: You can contact me through my email: <a href="mailto:contact@kbb.anonaddy.me">contact@kbb.anonaddy.me</a>, I'll try to respond as fast as I can!</li>
+  <li>📫 Contact: You can contact me through my email: <a href="mailto:kbvivi.contact@gmail.com">kbvivi.contact@gmail.com</a>, I'll try to respond as fast as I can!</li>
   <li>👦 Pronouns: He/Him</li>
 </ul>
 <sub>🤝 I'm open for collaborations!</sub>  
