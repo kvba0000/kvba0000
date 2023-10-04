@@ -181,7 +181,7 @@ SECRETS.OMORI.iconTrigger = (ev, iconElement) => {
                     setTimeout(() => {
                         SECRETS.OMORI.globalSfx.src = 'assets/omori_SE_sucks_a_LOT.mp3'
                         SECRETS.OMORI.globalSfx.loop = true;
-                        iconElement.querySelector('img.win-icon-icon').src = 'assets/OMORI_something_m.png'
+                        iconElement.querySelector('img.win-icon-icon').src = 'assets/omori_something_m.png'
                         iconElement.querySelector('span.win-icon-name').textContent = '□□□'
                         SECRETS.OMORI.globalSfx.play();
                         sfx.pause()
