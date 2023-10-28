@@ -33,6 +33,7 @@ const WindowClass = class {
             this.content.name = this.id;
         }
         else if(content instanceof Node) this.content = content;
+        else if(content === null){}
         else throw new Error("Invalid window content. It must be a iframe url or document element")
         this.title = title;
         this.scrollable = scrollable;
@@ -49,7 +50,7 @@ const WindowClass = class {
 
         const contentElem = this.window.querySelector(`.win-window-content`)
         if(scrollable) contentElem.style.overflow = 'scroll'
-        contentElem.appendChild(this.content)
+        if(content !== null) contentElem.appendChild(this.content)
 
         this.window.style.left = `${WINDOWMANAGER.nextWindowPos.x = (WINDOWMANAGER.nextWindowPos.x + 50) % Math.min(400, screen.availWidth)}px`
         this.window.style.top = `${WINDOWMANAGER.nextWindowPos.y = (WINDOWMANAGER.nextWindowPos.y + 50) % Math.min(400, screen.availHeight)}px`
@@ -118,11 +119,12 @@ const WindowClass = class {
 
 const NotepadWindowClass = class extends WindowClass {
     constructor(text = "", fileName = "Untitled") {
-        const element = document.createElement('div');
-        element.innerHTML = text;
-        element.style.whiteSpace = 'pre'
+        super(null, `${fileName} - Notepad`, true, true)
 
-        super(element, `${fileName} - Notepad`, true, true)
+        const c = this.window.querySelector(`.win-window-content`);
+        
+        c.style.whiteSpace = 'break-spaces'
+        c.innerHTML = text;
     }
 }
 
