@@ -17,29 +17,29 @@ const CTX_MENUS = {
         [null, null],
         ["Set update speed", () => {
             const p = () => {
-                let msg = prompt("Updating speed (1 tick every X ms?):")
+                let msg = prompt("Update speed (1 move every X ms?):")
                 if(!msg) return false;
                 if(!/^[0-9]+$/.test(msg)) {
                     alert("Invalid number")
                     p();
                 }
                 localStorage.setItem('SETTINGS.FREQ', msg)
-                alert(`Updated to ${msg}!`)
+                alert(`Updated to ${msg}ms!`)
                 location.reload();
                 return true;
             }
             return p();
         }],
-        ["Set jumper value", () => {
+        ["Set jumping value", () => {
             const p = () => {
-                let msg = prompt("Jumper value (by how many windows will move every tick?):")
+                let msg = prompt("Jumping value (by how many windows will move every time?):")
                 if(!msg) return false;
                 if(!/^[0-9]+$/.test(msg)) {
                     alert("Invalid number")
                     p();
                 }
                 localStorage.setItem('SETTINGS.JUMPER', msg)
-                alert(`Updated to ${msg}!`)
+                alert(`Updated to ${msg}px!`)
                 location.reload();
                 return true;
             }
@@ -48,21 +48,11 @@ const CTX_MENUS = {
     ]
 }
 
-const doUpdateCounter = () => {
-    spawnCountElem.innerHTML = popups.length
-    if(popups.length >= 3) spawningWarning.removeAttribute('hidden'); else spawningWarning.setAttribute('hidden', true) 
-},
-doSpawnLogo = () => {
+const doSpawnLogo = () => {
     if(isOnMobile) return alert("This website doesn't work on mobile! (or at least for now :>)")
     spawnLogo();
-    doUpdateCounter();
 },
-doClearLogos = () => {
-    clearLogos();
-    setTimeout(() => {
-        doUpdateCounter();
-    }, 100);
-}
+doClearLogos = () => clearLogos();
 
 document.querySelector('div.btn-list button#spawn-btn').addEventListener("click", doSpawnLogo)
 document.querySelector('div.btn-list button#clear-btn').addEventListener("click", doClearLogos)
@@ -191,7 +181,7 @@ closeCreditsBtn.addEventListener('click', () => {
         composite: "replace",
         fill: "forwards",
         easing: "ease-in-out"
-    }).addEventListener('finish', () =>     contribBox.style.display = 'unset', {once: true})
+    }).addEventListener('finish', () => contribBox.style.display = 'unset', {once: true})
 })
 
 // Mobile warning

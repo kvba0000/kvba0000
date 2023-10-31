@@ -2,6 +2,9 @@ const STARTMENUMANAGER = {
 
 }
 
+STARTMENUMANAGER.links = {}
+STARTMENUMANAGER.links.build = (link, params = {}) => `${link}?${Object.entries(params).map(p=>`${p[0]}=${encodeURIComponent(p[1])}`).join("&")}`
+
 STARTMENUMANAGER.list = [
     ["kb", () => {alert(Math.random()>0.01 ? "by kb with <3" : [
         "It's always good to feel loved, but it's not always lovely to feel good.",
@@ -15,11 +18,11 @@ STARTMENUMANAGER.list = [
         "",
         "~ kb 2023"
     ].join("\n")); return true}],
-    ["Github", "assets/window_contents/win_social.html?t=github"],
-    ["Mastodon", "assets/window_contents/win_social.html?t=mastodon"],
-    ["YouTube", "assets/window_contents/win_social.html?t=youtube"],
-    ["Reddit", "assets/window_contents/win_social.html?t=reddit"],
     null,
+    ["Share on Twitter!", () => window.open(STARTMENUMANAGER.links.build("https://twitter.com/intent/tweet", {
+        url: "https://kobb.tech",
+        text: `By the way! Have you heard about kobb.tech? It's so cool! Check it out! :D`
+    }), "_blank")],
     ["This PC", /*"assets/window_contents/win_thisPC.html"*/'/'],
     null,
     ["Settings", () => {new SettingsWindowClass(); return true}]

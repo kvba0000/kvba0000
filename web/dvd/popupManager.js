@@ -12,6 +12,12 @@ const JUMPER = Number(localStorage.getItem('SETTINGS.JUMPER') || 5),
 
 // ================
 
+let DVD_DATA_LOADED = false;
+let DVD_DATA;
+fetch("dvd.html").then(async r => {
+    DVD_DATA = await r.text();
+    DVD_DATA_LOADED = true
+})
 
 const getRandomInt = (min, max) => {
     min = Math.ceil(min);
@@ -38,24 +44,9 @@ const waitFor = async (o) => new Promise((rs,re) => {
     }, waitFor_DELAY);
 }) 
 
-/** @type {DVD_SS[]} */
-let popups = [];
 
-const DVD_Event = class {
-    name = "";
-    executor = () => {};
-    once = false;
-    constructor(name, executor, once = this.once){
-        this.name = name;
-        this.executor = executor;
-        this.once = once;
-    }
-}
 
 const DVD_SS = class {
-    /** @type {DVD_Event[]} */
-    _events = [];
-    closed = true;
     size = {
         h: 260,
         w: 320
@@ -68,8 +59,6 @@ const DVD_SS = class {
     yy = Boolean(getRandomInt(0,1));
     /** @type {Window} */
     window = null;
-    /** @type {number} */
-    moveInterval = null;
 
     constructor(autoStart = true){
         if(autoStart) this.start();
@@ -79,82 +68,34 @@ const DVD_SS = class {
         this.load();
     }
 
-    async close() {
-        this.window.close();
-        this.closed = true;
-        this.emit('closed')
-    }
-
     async load() {
-        this.window = window.open("dvd.html", "_blank", `popup`)
-        this.closed = false;
+        this.window = window.open("", "_blank", `popup`)
+        if(await waitFor(() => DVD_DATA_LOADED === true)) this.window.document.documentElement.appendChild(document.createRange().createContextualFragment(DVD_DATA))
+
         this.window.resizeTo(this.size.w, this.size.h)
         this.window.moveTo(this.pos.x, this.pos.y)
-        this.window.addEventListener('beforeunload', () => this.close(), {once: true})
-        this.window.addEventListener('load', () => {
-            setTimeout(() => {
-                this.startMoving() // Little delay to allow everything to load.
-            }, 100);
-        }, {once: true})
+        this.startMoving()
     }
 
     startMoving() {
         this.window.postMessage(['sendInitialData', {xx:this.xx, yy:this.yy, pos: this.pos, size: this.size, JUMPER, FREQ, DEAD_ZONE, screenSize}])
     }
 
-
-
-    // EVENTS PART
-    /**
-     * 
-     * @param {String} evName 
-     * @param {any} data 
-     */
-    emit(evName, data) {
-        const events = this._events.filter(ev => ev.name === evName);
-        for(let ev of events){
-            ev.executor(this, data)
-            if(ev.once) this._events.splice(this._events.indexOf(ev), 1) // Remove onces
-        }
-    }
-
-    /**
-     * 
-     * @param {String} evName 
-     * @param {(clas:this,data:any) => any} executor 
-     */
-    on(evName, executor) {
-        this._events.push(new DVD_Event(evName, executor))
-    }
-
-    /**
-     * @param {String} evName 
-     * @param {(clas:this,data:any) => any} executor 
-     */
-    once(evName, executor) {
-        this._events.push(new DVD_Event(evName, executor, true))
-    }
 }
 
-let nextWindowAllowed = 0;
+/**@type {DVD_SS[]} */
+const popups = []
+
+let nextWindowAllowed = true;
 const spawnLogo = () => {
-    if(nextWindowAllowed > Date.now()) return;
-    nextWindowAllowed = Date.now() + 1000
+    if(!nextWindowAllowed) return;
+    nextWindowAllowed = false; setTimeout(() => nextWindowAllowed = true, 1000)
 
     const dvd = new DVD_SS();
-
-    dvd.once('closed', (cls) => {
-        popups.splice(popups.indexOf(cls), 1)
-        doUpdateCounter();
-    })
-
-    popups.push(dvd);
+    popups.push(dvd)
 }
 
 
-
-const clearLogos = () => {
-    popups.forEach(p => p.window.postMessage(['exit']))
-}
+const clearLogos = () => popups.forEach(p => p.window.close())
 window.addEventListener('beforeunload', clearLogos, {capture: true})
 

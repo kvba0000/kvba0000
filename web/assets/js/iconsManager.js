@@ -3,15 +3,22 @@ let ICONSMANAGER = {
     template: document.querySelector('template#win-icontemplate')
 }
 
+ICONSMANAGER.links = {}
+ICONSMANAGER.links.social = (type, params = {}) => `assets/window_contents/win_social.html?${Object.entries(Object.assign({},{t:type},params)).map(e=>`${e[0]}=${encodeURIComponent(e[1])}`).join("&")}`
+ICONSMANAGER.links.icon = (name, type = ".svg") => `assets/icons/${name}.${type}`
+
 ICONSMANAGER.list = [
     ["licenses.txt", null, showLicences],
-    ["GitHub", "assets/icons/github-white.svg", "assets/window_contents/win_social.html?t=github"],
-    ["YouTube", "assets/icons/youtube_red_64px.png", "assets/window_contents/win_social.html?t=youtube"],
-    ["Mastodon", "assets/icons/mastodon-purple.svg", "assets/window_contents/win_social.html?t=mastodon"],
-    ["Reddit", "assets/icons/reddit-normal.svg", "assets/window_contents/win_social.html?t=reddit"],
-    ["OneShot", "assets/icons/oneshot.png", SECRETS.ONESHOT.iconTrigger],
-    ["Omori", "assets/icons/omori.png", SECRETS.OMORI.iconTrigger],
-    ["Undertale", "assets/icons/undertale.png", SECRETS.UNDERTALE.iconTrigger]
+    ["GitHub", ICONSMANAGER.links.icon('github-white', 'svg'), ICONSMANAGER.links.social("github")],
+    ["YouTube", ICONSMANAGER.links.icon('youtube_red_64px', 'png'), ICONSMANAGER.links.social("youtube")],
+    ["Mastodon", ICONSMANAGER.links.icon('mastodon-purple', 'svg'), ICONSMANAGER.links.social("mastodon")],
+    ["Reddit", ICONSMANAGER.links.icon('reddit-normal', 'svg'), ICONSMANAGER.links.social("reddit")],
+    ["Instagram", ICONSMANAGER.links.icon('instagram-gradient', 'svg'), ICONSMANAGER.links.social("instagram")],
+    ["TikTok", ICONSMANAGER.links.icon('tiktok-black-circle', 'png'), ICONSMANAGER.links.social("tiktok")],
+    ["OneShot", ICONSMANAGER.links.icon('oneshot', 'png'), SECRETS.ONESHOT.iconTrigger],
+    ["Omori", ICONSMANAGER.links.icon('omori', 'png'), SECRETS.OMORI.iconTrigger],
+    ["Undertale", ICONSMANAGER.links.icon('undertale', 'png'), SECRETS.UNDERTALE.iconTrigger],
+    ["DVD Screensaver", ICONSMANAGER.links.icon('DVD_logo_white', 'svg'), () => window.open("/dvd", "_blank")]
 ]   
 
 ICONSMANAGER.update = () => {
@@ -22,10 +29,10 @@ ICONSMANAGER.update = () => {
 
         if(title) clone.querySelector('span.win-icon-name').textContent = title
         
-        let icon = "assets/icons/file.svg"
+        let icon = ICONSMANAGER.links.icon('file', 'svg')
         if(icon_url) icon = icon_url
         else switch(title.split(".").pop()){
-            case "txt": icon = "assets/icons/notepad.svg"; break;
+            case "txt": icon = ICONSMANAGER.links.icon('notepad', 'svg'); break;
         }
 
         clone.querySelector('img.win-icon-icon').src = icon

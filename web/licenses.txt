@@ -63,6 +63,16 @@ More: https://joinmastodon.org/branding
 YouTube logo is a property of Google and has been used in terms of fair use and no to imitate them, but for promotion purposes of my profile.
 More: https://www.youtube.com/howyoutubeworks/resources/brand-resources
 
+|2Instagram:
+
+Instagram logo is a property of Meta Platforms and has been used in terms of fair use and no to imitate them, but for promotion purposes of my profile.
+More: https://about.meta.com/brand/resources/instagram/instagram-brand
+
+|2TikTok:
+
+TikTok logo is a property of ByteDance and has been used in terms of fair use and no to imitate them, but for promotion purposes of my profile.
+More: https://developers.tiktok.com/doc/getting-started-design-guidelines
+
 
 |1Audio:
 
@@ -89,3 +99,7 @@ Undertale is a game created by Toby Fox, any item used on this website from the 
 Buy the game at https://undertale.com/
 
 |3Bad Time Simulator by jcw87: https://jcw87.github.io/c2-sans-fight/
+
+|3Discord widget by Vendicated: https://widgets.vendicated.dev/
+
+|3Mastodon widget by fenwick67: https://mastofeed.com/

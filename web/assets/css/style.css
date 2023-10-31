@@ -150,7 +150,7 @@ div#win-login-box > img.roll-img {
 
 div#win-login-bg {
     background: url("/assets/space-wallpaper-1.jpg");
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100vw;
@@ -519,6 +519,12 @@ div#windows > div#win-icons {
     flex-wrap:wrap;
     align-items: flex-start;
     flex-direction: column;
+    pointer-events: none;
+}
+
+div#win-icons > *,
+div#win-widgets > * { 
+    pointer-events: auto !important;
 }
 
 div#win-icons > div.win-icon {
@@ -597,4 +603,21 @@ div#win-icons > div.win-icon.selected:hover {
 .undertale-btn:hover {
     filter: saturate(1);
     cursor: pointer;
+}
+
+
+div#windows > div#win-widgets {
+    height: calc(100vh - var(--win-taskbar-height));
+    width: calc(100vw - 0px);
+    position:fixed;
+    z-index: 1;
+    display: flex;
+    flex-wrap:wrap;
+    align-items: flex-end;
+    flex-direction: column;
+    pointer-events: none;
+}
+
+div#win-widgets > * {
+    margin: 20px;
 }

@@ -56,16 +56,6 @@ a {color: unset;}
     content: "|";
 }
 
-#spawn-warning {
-    color: red;
-    text-align: center;
-}
-
-#userscript-warning {
-    color: yellow;
-    text-align: center;
-}
-
 button {
     background-color: rgb(130, 0, 0);
     color: white;

@@ -18,6 +18,8 @@ const isUrl = (url) => /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-
 if(isUrl(WINDOWS.config.desktopWallpaper)) WINDOWS.elem.style.backgroundImage = `url(${WINDOWS.config.desktopWallpaper})`
 if(isUrl(WINDOWS.config.lockscreenWallpaper)) document.querySelector('#win-login-bg').style.backgroundImage = `url(${WINDOWS.config.lockscreenWallpaper})`
 
+WINDOWS.setLoadingCursor = (state = false) => document.body.style.cursor = state === true ? 'progress' : 'unset'
+
 /**
  * @description Selection box properties. (the one that allows you select things)
  */

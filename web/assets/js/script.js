@@ -36,6 +36,8 @@ const getRandomString = (length = 5) => {
     return str;
 }
 
+const isOnMobile = /Android|iPhone/i.test(navigator.userAgent)
+
 
 /**
  * Tries to parse JSON object
@@ -87,6 +89,7 @@ window.ondragstart = () => false
  */
 let introFinished = false;
 window.addEventListener('load', () => {
+    WINDOWS.setLoadingCursor(true)
     /*
 
         FADE ANIMATION
@@ -125,8 +128,8 @@ window.addEventListener('load', () => {
             */
             const windowsLoginBackground = document.querySelector("#win-login-bg")
             const animation = windowsLoginBackground.animate([
-                {filter: "blur(0px)", backgroundSize: "100%"},
-                {filter: "blur(5px)", backgroundSize: "102%"}
+                {filter: "blur(0px)", transform: "scale(1.1)"},
+                {filter: "blur(5px)", transform: "scale(1.15)"}
             ], {
                 duration: 400,
                 fill: "forwards",
@@ -139,6 +142,7 @@ window.addEventListener('load', () => {
                     WINDOWS LOGIN END
 
                 */
+                if(isOnMobile) alert("Remember! Some features/minigames might not work on mobile. :(")
                 const windowsLoginElem = document.querySelector("#win-login-screen")
                 const animation = windowsLoginElem.animate([
                     {opacity: "100%"},
@@ -150,6 +154,7 @@ window.addEventListener('load', () => {
                 animation.addEventListener('finish', () => {
                     introFinished = true;
                     windowsLoginElem.remove()
+                    WINDOWS.setLoadingCursor(false)
                 }, {once: true})
             }, 3000), {once: true})
         }, {once: true})

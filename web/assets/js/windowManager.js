@@ -10,8 +10,9 @@ WINDOWMANAGER.generateWindowIframe = (url) => {
     return e;
 }
 
-Object.assign(WINDOWMANAGER, 'defaultContent', {
-    get: () => {
+
+Object.defineProperty(WINDOWMANAGER, 'defaultContent', {
+    get() {
         const element = document.createElement('iframe')
         element.src = "https://www.youtube-nocookie.com/embed/xkIICPm9nag?controls=0&cc_load_policy=0&fs=0&disablekb=1&iv_load_policy=3&autoplay=1&rel=0&modestbranding=0"
         element.setAttribute('frameborder', 0)
@@ -45,7 +46,11 @@ const WindowClass = class {
         this.setEvents();
         if(this.content instanceof HTMLIFrameElement){
             this.window.setAttribute('hidden', true)
-            this.content.addEventListener('load', () => this.window.removeAttribute('hidden'), {once: true})
+            WINDOWS.setLoadingCursor(true)
+            this.content.addEventListener('load', () => {
+                WINDOWS.setLoadingCursor(false)
+                this.window.removeAttribute('hidden')
+            }, {once: true})
         }
 
         const contentElem = this.window.querySelector(`.win-window-content`)
