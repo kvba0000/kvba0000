@@ -605,6 +605,10 @@ div#win-icons > div.win-icon.selected:hover {
     cursor: pointer;
 }
 
+div#windows > div#win-widgets,
+div#windows > div#win-icons {
+    overflow: hidden;
+}
 
 div#windows > div#win-widgets {
     height: calc(100vh - var(--win-taskbar-height));
