@@ -20,10 +20,9 @@ STARTMENUMANAGER.list = [
     ].join("\n")); return true}],
     null,
     ["Share on Twitter!", () => window.open(STARTMENUMANAGER.links.build("https://twitter.com/intent/tweet", {
-        url: "https://kobb.tech",
-        text: `By the way! Have you heard about kobb.tech? It's so cool! Check it out! :D`
+        url: "https://kuba.lol",
+        text: `By the way! Have you heard about kuba.lol? It's so cool! Check it out! :D`
     }), "_blank")],
-    ["Be updated on Telegram!", () => window.open("https://kbvivi_n.t.me", "_blank")],
     ["This PC", /*"assets/window_contents/win_thisPC.html"*/'/'],
     null,
     ["Settings", () => {new SettingsWindowClass(); return true}]

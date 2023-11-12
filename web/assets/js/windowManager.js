@@ -28,7 +28,7 @@ const WindowClass = class {
     window;
     position = {x: 0, y: 0};
 
-    constructor(content = WINDOWMANAGER.defaultContent, title = "kobb.tech", scrollable = false, autoSpawning = true){
+    constructor(content = WINDOWMANAGER.defaultContent, title = "kuba.lol", scrollable = false, autoSpawning = true){
         if(typeof content === "string") {
             this.content = WINDOWMANAGER.generateWindowIframe(content);
             this.content.name = this.id;

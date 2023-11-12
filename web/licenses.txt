@@ -6,8 +6,8 @@
 |2Windows
 
 Windows is owned by Microsoft and this site's whole purpose is to parody it.
-kobb.tech is not a part of and is not affiliated with Microsoft in any way.
-kobb.tech is not monetized and it's source code is open and is available at https://github.com/kbvivi/kbvivi
+kuba.lol is not a part of and is not affiliated with Microsoft in any way.
+kuba.lol is not monetized and it's source code is open and is available at https://github.com/kbvivi/kbvivi
 
 |3Windows: https://microsoft.com/windows
 |3Microsoft: https://microsoft.com/
