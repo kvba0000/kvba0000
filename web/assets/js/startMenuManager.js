@@ -23,6 +23,7 @@ STARTMENUMANAGER.list = [
         url: "https://kuba.lol",
         text: `By the way! Have you heard about kuba.lol? It's so cool! Check it out! :D`
     }), "_blank")],
+    ["Support me on Ko-fi!", () => window.open('https://ko-fi.com/kbvivi', '_blank')],
     ["This PC", /*"assets/window_contents/win_thisPC.html"*/'/'],
     null,
     ["Settings", () => {new SettingsWindowClass(); return true}]
