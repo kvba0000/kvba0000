@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Welcome to the kuba.lol.</title>
+        <title>[[ kuba.lol ]]</title>
 
         <!-- Preload | Other -->
         <link rel="preload" href="/assets/css/style.css" as="style" />
@@ -8,7 +8,8 @@
 
         <link rel="preload" href="https://avatars.githubusercontent.com/u/47297843" as="image" />
         <link rel="preload" href="/assets/roll.svg" as="image" />
-        <link rel="preload" href="/assets/space-wallpaper-1.jpg" as="image" />
+        <link rel="prefetch" href="/assets/space-wallpaper-1.jpg" as="image" />
+        <link rel="prefetch" href="/assets/christmas-wallpaper-1.jpg" as="image" />
 
         <!-- Prefetch | Oneshot -->
         <link rel="prefetch" href="/assets/oneshot_nikostandD_bulb.png" as="image" />
@@ -55,7 +56,7 @@
                 <path d="M21 21L12 12M12 12L3 3M12 12L21.0001 3M12 12L3 21.0001" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </symbol>
          </svg>
-        <div id="loadscreen">
+        <div id="loadscreen" class="show-warning-loadscreen">
             <noscript>
                 <div id="noscriptscreen">
                     <span>You need to have JavaScript turned on for page to work!</span>
@@ -122,10 +123,6 @@
                     </div>
                 </div>
             </template>
-            <div id="win-widgets">
-                <iframe title="Discord user embed" width="340" height=120 frameborder="0" src="https://widgets.vendicated.dev/user?id=105170831130234880&theme=dark&banner=true&full-banner=false&rounded-corners=true&discord-icon=true&badges=true&guess-nitro=true"></iframe>
-                <iframe title="Mastodon profile embed" width="340" height="300" frameborder="0" src="https://mastofeed.com/apiv2/feed?userurl=https%3A%2F%2F101010.pl%2Fusers%2Fkb&theme=dark&size=100&header=true&replies=true&boosts=false"></iframe>
-            </div>
         </div>
         <script src="/assets/js/windows.js"></script>
         <script src="/assets/js/small.js"></script>

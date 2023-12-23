@@ -14,9 +14,16 @@ let WINDOWS = {
  */
 const isUrl = (url) => /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/.test(url)
 
+const isChristmasTime = () => new Date().getMonth() === 11 && new Date().getDate() >= 20 && new Date().getDate() <= 30
+
 // Modifying wallpaper and lockscreen for config
-if(isUrl(WINDOWS.config.desktopWallpaper)) WINDOWS.elem.style.backgroundImage = `url(${WINDOWS.config.desktopWallpaper})`
-if(isUrl(WINDOWS.config.lockscreenWallpaper)) document.querySelector('#win-login-bg').style.backgroundImage = `url(${WINDOWS.config.lockscreenWallpaper})`
+if(isChristmasTime()) {
+    WINDOWS.elem.style.backgroundImage = `url(/assets/christmas-wallpaper-2.jpg)`
+    document.querySelector('#win-login-bg').style.backgroundImage = `url(/assets/christmas-wallpaper-1.jpg)`
+} else {
+    if(isUrl(WINDOWS.config.desktopWallpaper)) WINDOWS.elem.style.backgroundImage = `url(${WINDOWS.config.desktopWallpaper})`
+    if(isUrl(WINDOWS.config.lockscreenWallpaper)) document.querySelector('#win-login-bg').style.backgroundImage = `url(${WINDOWS.config.lockscreenWallpaper})`
+}
 
 WINDOWS.setLoadingCursor = (state = false) => document.body.style.cursor = state === true ? 'progress' : 'unset'
 

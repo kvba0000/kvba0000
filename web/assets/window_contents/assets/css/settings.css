@@ -41,7 +41,7 @@ h2 {
     margin-top: 30px;
 }
 
-input {
+input, select {
     outline: none;
 
     border-left: solid black 3px;
@@ -58,8 +58,16 @@ input {
     box-sizing: border-box;
 }
 
-input:focus {
+select {
+    height: 40px !important;
+}
+
+input:focus, select:focus {
     border-color: var(--main-color);
+}
+
+input:disabled, select:disabled {
+    background-color: rgb(230, 230, 230);
 }
 
 span {
@@ -102,3 +110,6 @@ span {
     transform: scale(0.98);
 }
 
+.error {
+    color: red;
+}

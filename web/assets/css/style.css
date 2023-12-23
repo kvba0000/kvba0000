@@ -43,6 +43,16 @@ iframe {
     position: fixed;
 }
 
+#loadscreen.show-warning-loadscreen::after {
+    content: "Website might contain mild jumpscares and flashing content...";
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
 div#noscriptscreen {
     position: fixed;
     left: 50vw;
@@ -511,20 +521,18 @@ body.pope > div#windows::before {
     font-size: 300px;
 }
 
+
 div#windows > div#win-icons {
     height: calc(100vh - var(--win-taskbar-height));
+    max-width: 100vw;
     position:fixed;
     z-index: -1;
-    display: flex;
-    flex-wrap:wrap;
-    align-items: flex-start;
-    flex-direction: column;
     pointer-events: none;
-}
-
-div#win-icons > *,
-div#win-widgets > * { 
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     pointer-events: auto !important;
+    overflow: hidden;
 }
 
 div#win-icons > div.win-icon {
@@ -533,7 +541,7 @@ div#win-icons > div.win-icon {
     position: relative;
     height: 90px;
     width: 130px;
-    margin: 15px;
+    margin: 5px;
 }
 
 div.win-icon > img.win-icon-icon {
@@ -605,23 +613,13 @@ div#win-icons > div.win-icon.selected:hover {
     cursor: pointer;
 }
 
-div#windows > div#win-widgets,
-div#windows > div#win-icons {
-    overflow: hidden;
-}
-
-div#windows > div#win-widgets {
-    height: calc(100vh - var(--win-taskbar-height));
-    width: calc(100vw - 0px);
-    position:fixed;
-    z-index: 1;
-    display: flex;
-    flex-wrap:wrap;
-    align-items: flex-end;
-    flex-direction: column;
+.KRIMA-so-cool, .KRIMA-so-cool > span {
+    user-select: none;
     pointer-events: none;
 }
 
-div#win-widgets > * {
-    margin: 20px;
+.KRIMA-so-cool > span {
+    position: fixed;
+    color: white;
+    font-weight: 700;
 }

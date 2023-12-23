@@ -5,19 +5,21 @@ const STARTMENUMANAGER = {
 STARTMENUMANAGER.links = {}
 STARTMENUMANAGER.links.build = (link, params = {}) => `${link}?${Object.entries(params).map(p=>`${p[0]}=${encodeURIComponent(p[1])}`).join("&")}`
 
+STARTMENUMANAGER.getKbMessage = () => isChristmasTime() ? "Merry Christmas! <3 ~kb" : (Math.random()>0.01 ? "by kb with <3" : [
+    "It's always good to feel loved, but it's not always lovely to feel good.",
+    "Sometimes, you have to just stop... and think about everything you do in your life...",
+    "Maybe it is something you like for example reading a good book, or playing a favorite video game...",
+    "But sometimes it can be something as destroying as ignoring problems.",
+    "I've been ignoring them since I remember and It's pretty much destroying.",
+    "",
+    "If you're the one that has a luck to get this message without looking to code. Congrats. You found my real reason why I'm always online...",
+    "Problems are near us all the time... but you cannot just pretend all the time like they are not here.",
+    "",
+    "~ kb 2023"
+].join("\n"))
+
 STARTMENUMANAGER.list = [
-    ["kb", () => {alert(Math.random()>0.01 ? "by kb with <3" : [
-        "It's always good to feel loved, but it's not always lovely to feel good.",
-        "Sometimes, you have to just stop... and think about everything you do in your life...",
-        "Maybe it is something you like for example reading a good book, or playing a favorite video game...",
-        "But sometimes it can be something as destroying as ignoring problems.",
-        "I've been ignoring them since I remember and It's pretty much destroying.",
-        "",
-        "If you're the one that has a luck to get this message without looking to code. Congrats. You found my real reason why I'm always online...",
-        "Problems are near us all the time... but you cannot just pretend all the time like they are not here.",
-        "",
-        "~ kb 2023"
-    ].join("\n")); return true}],
+    ["kb", () => {alert(STARTMENUMANAGER.getKbMessage()); return true}],
     null,
     ["Share on Twitter!", () => window.open(STARTMENUMANAGER.links.build("https://twitter.com/intent/tweet", {
         url: "https://kuba.lol",

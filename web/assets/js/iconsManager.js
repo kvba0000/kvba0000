@@ -7,6 +7,9 @@ ICONSMANAGER.links = {}
 ICONSMANAGER.links.social = (type, params = {}) => `assets/window_contents/win_social.html?${Object.entries(Object.assign({},{t:type},params)).map(e=>`${e[0]}=${encodeURIComponent(e[1])}`).join("&")}`
 ICONSMANAGER.links.icon = (name, type = ".svg") => `assets/icons/${name}.${type}`
 
+// firefox specific - firefox can't automatically calculate width of parent element so we have to do it manually
+ICONSMANAGER.firefox_resize = () => ICONSMANAGER.elem.style.width = `${ICONSMANAGER.elem.lastChild.getBoundingClientRect().right - ICONSMANAGER.elem.getBoundingClientRect().left}px`
+
 ICONSMANAGER.list = [
     ["licenses.txt", null, showLicences],
     ["GitHub", ICONSMANAGER.links.icon('github-white', 'svg'), ICONSMANAGER.links.social("github")],
@@ -15,7 +18,7 @@ ICONSMANAGER.list = [
     ["OneShot", ICONSMANAGER.links.icon('oneshot', 'png'), SECRETS.ONESHOT.iconTrigger],
     ["Omori", ICONSMANAGER.links.icon('omori', 'png'), SECRETS.OMORI.iconTrigger],
     ["Undertale", ICONSMANAGER.links.icon('undertale', 'png'), SECRETS.UNDERTALE.iconTrigger],
-    ["DVD Screensaver", ICONSMANAGER.links.icon('DVD_logo_white', 'svg'), () => window.open("/dvd", "_blank")]
+    ["DVD Screensaver", ICONSMANAGER.links.icon('DVD_logo_white', 'svg'), "/dvd"]
 ]   
 
 ICONSMANAGER.update = () => {
@@ -33,6 +36,7 @@ ICONSMANAGER.update = () => {
         }
 
         clone.querySelector('img.win-icon-icon').src = icon
+        clone.querySelector('div.win-icon').setAttribute('data-name', title)
         
         const iconElement = clone.querySelector('.win-icon')
 
@@ -75,6 +79,17 @@ ICONSMANAGER.update = () => {
             }
         }
     })
+
+    ICONSMANAGER.firefox_resize()
 }
 
 ICONSMANAGER.update();
+
+
+window.addEventListener('resize', ICONSMANAGER.firefox_resize)
+ICONSMANAGER.firefox_resize();
+
+
+
+// Secrets (couldn't use in small.js because the order of files)
+if(SECRETS.ONESHOT.brokenSunTimes >= 2) document.querySelector('[data-name="OneShot"]').remove()

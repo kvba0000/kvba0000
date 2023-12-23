@@ -16,12 +16,26 @@
         <div id="rightpane">
             <div>
                 <h1>Website settings</h1>
-                <h2>Pick an image</h2>
-                <span>Wallpaper will save between website refreshes.</span>
-                <span>Desktop wallpaper</span>
-                <input name="set-desktopWallpaper" type="url" placeholder="Fill with image URL" />
-                <span>Lock screen image</span>
-                <input name="set-lockscreenWallpaper" type="url" placeholder="Fill with image URL" /> 
+                <span hidden id="error" class="error"></span>
+                <div id="wallpaper">
+                    <h2>Pick an image</h2>
+                    <span>Wallpaper will save between website refreshes.</span>
+                    <span>Desktop wallpaper</span>
+                    <input name="set-desktopWallpaper" type="url" placeholder="Fill with image URL" />
+                    <span>Lock screen image</span>
+                    <input name="set-lockscreenWallpaper" type="url" placeholder="Fill with image URL" /> 
+                </div>
+                <div id="christmas" hidden>
+                    <h2>Event settings - Christmas</h2>
+                    <span>Those settings are only active during Christmas, enjoy your presents!</span>
+                    <span>Hide snowflakes</span>
+                    <select name="set-hideSnowflakes">
+                        <option value="true">ON</option>
+                        <option value="false" selected>OFF</option>
+                    </select>
+                    <span>Snowflakes intensity</span>
+                    <input name="set-snowflakesIntensity" type="number" min="5" max="80" value="30" />
+                </div>
             </div>
             <br>
             <button id="save">Save</button>

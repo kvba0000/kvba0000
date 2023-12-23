@@ -101,64 +101,68 @@ window.addEventListener('load', () => {
         {"opacity": "0%"}
     ], {
         duration: 1000,
-        composite: "replace",
+        delay: 2000,
+        composite: "replace"
     })
-    animation.addEventListener('finish', () => setTimeout(() => {
+    animation.addEventListener('finish', () => {
         loadingScreenElem.setAttribute('hidden', true)
-        /*
-
-            WINDOWS LOAD ANIMATION
-
-        */
-        const windowsLoadingScreen = document.querySelector("#win-load-screen")
-        const animation = windowsLoadingScreen.animate([
-            {"opacity": "100%"},
-            {"opacity": "0%"}
-        ], {
-            duration: 100,
-            composite: "replace",
-            fill: "forwards"
-        })
-        animation.addEventListener("finish", () => {
-            windowsLoadingScreen.remove()
+        setTimeout(() => {
+            loadingScreenElem.classList.remove("show-warning-loadscreen")
             /*
 
-                WINDOWS LOGIN BLUR
+                WINDOWS LOAD ANIMATION
 
             */
-            const windowsLoginBackground = document.querySelector("#win-login-bg")
-            const animation = windowsLoginBackground.animate([
-                {filter: "blur(0px)", transform: "scale(1.1)"},
-                {filter: "blur(5px)", transform: "scale(1.15)"}
+            const windowsLoadingScreen = document.querySelector("#win-load-screen")
+            const animation = windowsLoadingScreen.animate([
+                {"opacity": "100%"},
+                {"opacity": "0%"}
             ], {
-                duration: 400,
-                fill: "forwards",
-                easing: "ease-in-out",
-                delay: 50
+                duration: 100,
+                composite: "replace",
+                fill: "forwards"
             })
-            animation.addEventListener('finish', () => setTimeout(() => {
+            animation.addEventListener("finish", () => {
+                windowsLoadingScreen.remove()
                 /*
 
-                    WINDOWS LOGIN END
+                    WINDOWS LOGIN BLUR
 
                 */
-                if(isOnMobile) alert("Remember! Some features/minigames might not work on mobile. :(")
-                const windowsLoginElem = document.querySelector("#win-login-screen")
-                const animation = windowsLoginElem.animate([
-                    {opacity: "100%"},
-                    {opacity: "0%"}
+                const windowsLoginBackground = document.querySelector("#win-login-bg")
+                const animation = windowsLoginBackground.animate([
+                    {filter: "blur(0px)", transform: "scale(1.1)"},
+                    {filter: "blur(5px)", transform: "scale(1.15)"}
                 ], {
                     duration: 400,
-                    fill: "forwards"
+                    fill: "forwards",
+                    easing: "ease-in-out",
+                    delay: 50
                 })
-                animation.addEventListener('finish', () => {
-                    introFinished = true;
-                    windowsLoginElem.remove()
-                    WINDOWS.setLoadingCursor(false)
-                }, {once: true})
-            }, 3000), {once: true})
-        }, {once: true})
-    }, 500), {once: true})
+                animation.addEventListener('finish', () => setTimeout(() => {
+                    /*
+
+                        WINDOWS LOGIN END
+
+                    */
+                    if(isOnMobile) alert("Remember! Some features/minigames might not work on mobile. :(")
+                    const windowsLoginElem = document.querySelector("#win-login-screen")
+                    const animation = windowsLoginElem.animate([
+                        {opacity: "100%"},
+                        {opacity: "0%"}
+                    ], {
+                        duration: 400,
+                        fill: "forwards"
+                    })
+                    animation.addEventListener('finish', () => {
+                        introFinished = true;
+                        windowsLoginElem.remove()
+                        WINDOWS.setLoadingCursor(false)
+                    }, {once: true})
+                }, 3000), {once: true})
+            }, {once: true})
+        }, 500)
+    }, {once: true})
 }, {once: true})
 
 

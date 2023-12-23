@@ -41,3 +41,19 @@ window.addEventListener('message', ({data}) => {
     }
 })
 sendMessage('loadSettings')
+
+const isChristmasTime = new Date().getMonth() === 11 && new Date().getDate() >= 20 && new Date().getDate() <= 30
+
+// Event settings disabling
+if(
+    isChristmasTime
+) {
+    if(isChristmasTime) {
+        [...document.querySelectorAll('#wallpaper > *[name^="set-"]')].forEach(e => e.disabled = true)
+        document.querySelector('#christmas').removeAttribute('hidden')
+    }
+    
+    const errElem = document.querySelector('span#error')
+    errElem.textContent = 'During special events, some settings are disabled to prevent unwanted behavior. (some might be also visible now :P)';
+    errElem.removeAttribute('hidden')
+}
