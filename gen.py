@@ -65,8 +65,7 @@ github_neofetch = [
     ["", ""],
     ["Contact", None],
     ["E-Mail", "hi@kuba.lol"],
-    ["Telegram", "@idkuba"],
-    ["Discord (private)", ".kb."],
+    ["Discord (private)", "kvbaxi"],
     ["", ""],
     [f"GitHub ({username})", None],
     ["Total Stars", github.total_stargazers],
@@ -102,7 +101,7 @@ t.gen_text("", 1, count=10)
 t.toggle_show_cursor(False)
 
 t.gen_text(f"Github {d.day}.{d.month} readme tty1", 1, count=6)
-t.gen_text(f"kb (c) {d.year}", 2, count=12)
+t.gen_text(f"kvba (c) {d.year}", 2, count=12)
 t.toggle_show_cursor(True)
 t.gen_text("",2, count=12)
 
