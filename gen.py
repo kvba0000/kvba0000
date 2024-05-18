@@ -177,7 +177,7 @@ t.gen_text(" ", 2, count=24)
 generate_neofetch(3)
 
 t.gen_prompt(t.num_rows, count=24)
-t.gen_typing_text(";)", t.num_rows, contin=True, speed=3)
+t.gen_typing_text("[*] RIP Neofetch...", t.num_rows, contin=True, speed=3)
 t.gen_text("", t.num_rows, contin=True, count=256)
 
 t.gen_gif()
