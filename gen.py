@@ -1,7 +1,6 @@
 if __name__ != "__main__": exit(1)
 
 import gifos
-import json
 from random import randint, choice
 from datetime import date
 from colorama import Fore, Style, Back
@@ -11,7 +10,7 @@ import urllib.request
 username = "kvbaxi" # Github Username (for fetching most of the stuff)
 tagline = "kuba.lol" # Second text after rainbow animation
 # \/ Self-explanatory
-prompt = f"{Style.BRIGHT}{Fore.RED}-[{Fore.WHITE}{username}{Fore.RED}@{Fore.WHITE}readme{Fore.RED}]>{Style.RESET_ALL} "
+prompt = f"{Style.BRIGHT}{Fore.BLUE}-[{Fore.WHITE}{username}{Fore.BLUE}@{Fore.WHITE}readme{Fore.BLUE}]>{Style.RESET_ALL} "
 dob = (27, 5, 2005) # Date of birth
 
 
@@ -56,23 +55,24 @@ t.set_fps(15)
 github = gifos.utils.fetch_github_stats(username)
 
 y = gifos.utils.calc_age(*dob)
-github_neofetch = [
-    ["Info", None],
+# RIP neofetch
+github_neofetch = [ 
+    ["kvbaxi@readme", None],
     ["Name", "Kuba"],
     ["Location", "Poland"],
     ["Uptime", f"{y.years} years, {y.months} months and {y.days} days"],
-    ["OS", "[Fedora Linux, Windows 10, Android 11]"],
+    ["OS", "[Windows 10, Android 13]"],
     ["", ""],
     ["Contact", None],
     ["E-Mail", "hi@kuba.lol"],
-    ["Discord (private)", ".kb."],
+    ["Discord", ".kb."],
     ["Telegram", "kvbaxi"],
     ["", ""],
     [f"GitHub ({username})", None],
     ["Total Stars", github.total_stargazers],
     ["Followers", github.total_followers],
     ["Pull Requests", f"{github.total_pull_requests_made} ({github.total_pull_requests_merged})"],
-    ["Languages", f"[{', '.join(map(lambda x: f'{x[0]}', github.languages_sorted))}]"]
+    ["Languages", f"[{', '.join(map(lambda x: f'{x[0]}', github.languages_sorted[:3]))}]"]
 ]
 
 def generate_neofetch(row_num):
@@ -83,9 +83,9 @@ def generate_neofetch(row_num):
     x = 3
     y = row_num
     t.paste_image(getGithubAvatar(username, 300), y+2,x)
-    x += 33
+    x += 36
     for [k, v] in github_neofetch:
-        [kStyle, vStyle] = [Fore.WHITE, Fore.BLACK+Back.WHITE] if v == None else [Style.BRIGHT+Fore.WHITE, Style.RESET_ALL+Fore.RED]
+        [kStyle, vStyle] = [Fore.WHITE, Fore.BLACK+Back.WHITE] if v == None else [Style.BRIGHT+Fore.WHITE, Style.RESET_ALL+Fore.BLUE]
         if v == None:
             t.gen_text(f"{kStyle}{k}{Style.RESET_ALL}", y, x, contin=True, count=0)
             t.gen_text(vStyle+("-"*(len(k)+2))+Style.RESET_ALL, y+1, x, contin=True, count=0)
@@ -113,10 +113,10 @@ t.gen_text(f"{Fore.RESET}login:{Fore.GREEN} {username}{Fore.RESET}", 4, count=0)
 
 t.gen_text(f"{Fore.RESET}password:{Fore.RED} ", 5, count=8)
 passwd = "*"*randint(8,10)
-t.gen_typing_text(passwd, 5, contin=True, speed=4)
+t.gen_typing_text(passwd, 5, contin=True, speed=3)
 t.delete_row(5)
 t.gen_text(f"{Fore.RESET}password:{Fore.GREEN} {passwd}{Fore.RESET}", 5, count=0)
-t.gen_text(" ", 6, count=24)
+t.gen_text(" ", 6, count=12)
 
 # Scramble text
 effect_text = f"Welcome, {github.account_name}!"
@@ -145,12 +145,12 @@ t.gen_text(tt, mid_row + 1, text_mid_col + 1)
 
 text = " ".join([*effect_text])
 text_mid_col = genMidCol(text)
-t.gen_text(Colors.RED+text, mid_row + 1, text_mid_col + 1, count=24)
+t.gen_text(Colors.BLUE+text, mid_row + 1, text_mid_col + 1, count=24)
 
 tt = "kuba.lol"
 text = " ".join([*tt])
 text_mid_col = genMidCol(text)
-t.gen_text(Colors.RED+text, mid_row + 1, text_mid_col + 1, count=24)
+t.gen_text(Colors.BLUE+text, mid_row + 1, text_mid_col + 1, count=24)
 
 tt = " "
 text_mid_col = genMidCol(tt)
@@ -160,24 +160,23 @@ tt = "Press any key to continue..."
 text = " ".join([*tt])
 text_mid_col = genMidCol(text)
 t.toggle_show_cursor(True)
-t.gen_text(Colors.RED+text, mid_row + 1, text_mid_col + 1, count=48)
+t.gen_text(Colors.BLUE+text, mid_row + 1, text_mid_col + 1, count=48)
 
 t.set_prompt(prompt)
 
 t.clear_frame()
-t.clone_frame(10)
+t.clone_frame(5)
 
 t.gen_prompt(1, count=24)
-t.gen_typing_text(f"{Colors.RED}neofetch", 1, contin=True)
+t.gen_typing_text(f"{Colors.RED}fastfetch", 1, contin=True)
 t.delete_row(1)
-t.gen_text(f"{prompt}{Colors.GREEN}neofetch", 1, count=0)
-t.gen_typing_text(f" -u {username}", 1, contin=True)
-t.gen_text(" ", 2, count=24)
+t.gen_text(f"{prompt}{Colors.GREEN}fastfetch", 1, count=0)
+t.gen_text("\n", 2, count=24)
 
 generate_neofetch(3)
 
 t.gen_prompt(t.num_rows, count=24)
-t.gen_typing_text("[*] RIP Neofetch...", t.num_rows, contin=True, speed=3)
+t.gen_typing_text("hi :3", t.num_rows, contin=True, speed=3)
 t.gen_text("", t.num_rows, contin=True, count=256)
 
 t.gen_gif()
