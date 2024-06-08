@@ -116,7 +116,7 @@ passwd = "*"*randint(8,10)
 t.gen_typing_text(passwd, 5, contin=True, speed=3)
 t.delete_row(5)
 t.gen_text(f"{Fore.RESET}password:{Fore.GREEN} {passwd}{Fore.RESET}", 5, count=0)
-t.gen_text(" ", 6, count=12)
+t.gen_text("\n", 6, count=12)
 
 # Scramble text
 effect_text = f"Welcome, {github.account_name}!"
