@@ -7,7 +7,7 @@ from colorama import Fore, Style, Back
 import urllib.request
 
 # Fun little config here
-username = "kvbaxi" # Github Username (for fetching most of the stuff)
+username = "kvba0000" # Github Username (for fetching most of the stuff)
 tagline = "kuba.lol" # Second text after rainbow animation
 # \/ Self-explanatory
 prompt = f"{Style.BRIGHT}{Fore.BLUE}-[{Fore.WHITE}{username}{Fore.BLUE}@{Fore.WHITE}readme{Fore.BLUE}]>{Style.RESET_ALL} "
