@@ -66,7 +66,7 @@ github_neofetch = [
     ["Contact", None],
     ["E-Mail", "hi@kuba.lol"],
     ["Discord", ".kb."],
-    ["Telegram", "kvbaxi"],
+    ["Telegram", "kvba0000"],
     ["", ""],
     [f"GitHub ({username})", None],
     ["Total Stars", github.total_stargazers],
