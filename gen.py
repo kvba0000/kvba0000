@@ -74,7 +74,6 @@ github_neofetch = [
     ["", ""],
     [f"GitHub ({username})", None],
     ["Total Stars", github.total_stargazers],
-    ["Followers", github.total_followers],
     ["Pull Requests", f"{github.total_pull_requests_made} ({github.total_pull_requests_merged})"],
     ["Languages", f"[{', '.join(map(lambda x: f'{x[0]}', github.languages_sorted[:3]))}]"]
 ]
