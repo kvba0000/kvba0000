@@ -36,5 +36,5 @@ jobs:
       - name: Update gif
         run: |
           git add output.gif
-          git -c "user.name='time update'" -c "user.email='hi@kuba.lol'" commit -m "Refreshed to $(TZ='Europe/Warsaw' date)"
+          git -c "user.name='time update'" -c "user.email='i@am.bot'" commit -m "Refreshed to $(TZ='Europe/Warsaw' date)"
           git push
