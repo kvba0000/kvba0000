@@ -54,6 +54,7 @@ d = date.today()
 
 t = gifos.Terminal(750, 500, 10, 10, font_file=FONT, font_size=15)
 t.set_fps(15)
+t.set_loop_count(-1)
 
 github = gifos.utils.fetch_github_stats(username)
 
@@ -181,5 +182,6 @@ generate_neofetch(3)
 t.gen_prompt(t.num_rows, count=24)
 t.gen_typing_text("hi :3", t.num_rows, contin=True, speed=3)
 t.gen_text("", t.num_rows, contin=True, count=256)
+
 
 t.gen_gif()
