@@ -31,7 +31,7 @@ jobs:
         run: python gen.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GIFOS_GENERAL_COLOR_SCHEME: "rose-pine"
+          GIFOS_GENERAL_COLOR_SCHEME: "dracula"
 
       - name: Update gif
         run: |
