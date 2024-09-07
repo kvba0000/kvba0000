@@ -25,7 +25,7 @@ class Colors:
 username = "kvba0000" # Github Username (for fetching most of the stuff)
 tagline = "kuba.lol" # Second text after rainbow animation
 
-main_color = Fore.PURPLE
+main_color = Fore.RED
 
 # \/ Self-explanatory
 prompt = f"{Style.BRIGHT}{main_color}-[{Fore.WHITE}{username}{main_color}@{Fore.WHITE}readme{main_color}]>{Style.RESET_ALL} "
