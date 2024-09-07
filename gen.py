@@ -6,16 +6,6 @@ from datetime import date
 from colorama import Fore, Style, Back
 import urllib.request
 
-# Fun little config here
-username = "kvba0000" # Github Username (for fetching most of the stuff)
-tagline = "kuba.lol" # Second text after rainbow animation
-# \/ Self-explanatory
-prompt = f"{Style.BRIGHT}{Fore.BLUE}-[{Fore.WHITE}{username}{Fore.BLUE}@{Fore.WHITE}readme{Fore.BLUE}]>{Style.RESET_ALL} "
-dob = (27, 5, 2005) # Date of birth
-
-
-# Less fun pile of code down there
-
 class Colors:
     RED = "\033[0;31m"
     GREEN = "\033[0;32m"
@@ -30,6 +20,19 @@ class Colors:
     LIGHT_PURPLE = "\033[1;35m"
     LIGHT_CYAN = "\033[1;36m"
     LIGHT_WHITE = "\033[1;37m"
+
+# Fun little config here
+username = "kvba0000" # Github Username (for fetching most of the stuff)
+tagline = "kuba.lol" # Second text after rainbow animation
+
+main_color = Fore.PURPLE
+
+# \/ Self-explanatory
+prompt = f"{Style.BRIGHT}{main_color}-[{Fore.WHITE}{username}{main_color}@{Fore.WHITE}readme{main_color}]>{Style.RESET_ALL} "
+dob = (27, 5, 2005) # Date of birth
+
+
+# Less fun pile of code down there
 
 FONT = "./fonts/Hack-Regular.ttf"
 
@@ -57,16 +60,17 @@ github = gifos.utils.fetch_github_stats(username)
 y = gifos.utils.calc_age(*dob)
 # RIP neofetch
 github_neofetch = [ 
-    ["kvbaxi@readme", None],
+    [f"{username}@readme", None],
     ["Name", "Kuba"],
     ["Location", "Poland"],
     ["Uptime", f"{y.years} years, {y.months} months and {y.days} days"],
-    ["OS", "[Windows 10, Android 13]"],
+    ["OS", "[Linux Mint, Windows 10, Android 13]"],
     ["", ""],
     ["Contact", None],
     ["E-Mail", "hi@kuba.lol"],
     ["Discord", ".kb."],
     ["Telegram", "kvba0000"],
+    ["Signal", "kvba.1000"],
     ["", ""],
     [f"GitHub ({username})", None],
     ["Total Stars", github.total_stargazers],
@@ -85,7 +89,7 @@ def generate_neofetch(row_num):
     t.paste_image(getGithubAvatar(username, 300), y+2,x)
     x += 36
     for [k, v] in github_neofetch:
-        [kStyle, vStyle] = [Fore.WHITE, Fore.BLACK+Back.WHITE] if v == None else [Style.BRIGHT+Fore.WHITE, Style.RESET_ALL+Fore.BLUE]
+        [kStyle, vStyle] = [Fore.WHITE, Fore.BLACK+Back.WHITE] if v == None else [Style.BRIGHT+Fore.WHITE, Style.RESET_ALL+main_color]
         if v == None:
             t.gen_text(f"{kStyle}{k}{Style.RESET_ALL}", y, x, contin=True, count=0)
             t.gen_text(vStyle+("-"*(len(k)+2))+Style.RESET_ALL, y+1, x, contin=True, count=0)
