@@ -23,7 +23,7 @@ class Colors:
 
 # Fun little config here
 username = "kvba0000" # Github Username (for fetching most of the stuff)
-tagline = "kuba.lol" # Second text after rainbow animation
+tagline = "meowpa.ws" # Second text after rainbow animation
 
 main_color = Fore.RED
 
@@ -151,7 +151,7 @@ text = " ".join([*effect_text])
 text_mid_col = genMidCol(text)
 t.gen_text(Colors.BLUE+text, mid_row + 1, text_mid_col + 1, count=24)
 
-tt = "kuba.lol"
+tt = "meowpa.ws"
 text = " ".join([*tt])
 text_mid_col = genMidCol(text)
 t.gen_text(Colors.BLUE+text, mid_row + 1, text_mid_col + 1, count=24)
