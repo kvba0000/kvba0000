@@ -68,7 +68,7 @@ github_neofetch = [
     ["OS", "[Linux Mint, Windows 10, Android 13]"],
     ["", ""],
     ["Contact", None],
-    ["E-Mail", "hi@kuba.lol"],
+    ["E-Mail", "purr@meowpa.ws"],
     ["Discord", ".kb."],
     ["Telegram", "kvba0000"],
     ["Signal", "kvba.1000"],
