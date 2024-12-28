@@ -22,7 +22,7 @@ class Colors:
     LIGHT_WHITE = "\033[1;37m"
 
 # Fun little config here
-username = "kvba0000" # Github Username (for fetching most of the stuff)
+username = "kvba5" # Github Username (for fetching most of the stuff)
 tagline = "meowpa.ws" # Second text after rainbow animation
 
 main_color = Fore.RED
@@ -65,12 +65,12 @@ github_neofetch = [
     ["Name", "Kuba"],
     ["Location", "Poland"],
     ["Uptime", f"{y.years} years, {y.months} months and {y.days} days"],
-    ["OS", "[Linux Mint, Windows 10, Android 13]"],
+    ["OS", "[Fedpra 41, Windows 10, Android 13]"],
     ["", ""],
     ["Contact", None],
     ["E-Mail", "purr@meowpa.ws"],
     ["Discord", ".kb."],
-    ["Telegram", "kvba0000"],
+    ["Telegram", "kvba5"],
     ["Signal", "kvba.1000"],
     ["", ""],
     [f"GitHub ({username})", None],
